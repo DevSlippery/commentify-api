@@ -8,15 +8,33 @@
 module.exports = {
   tableName: "users",
   attributes: {
-    fullName: {
-      type: "string",
-      required: true,
-      columnName: "full_name",
+    firstname:{
+      type:'string',
+      required:true,
+      columnName:'first_name'
+    },
+    lastname:{
+      type:'string',
+      required:true,
+      columnName:'last_name'
     },
     email: {
       type: "string",
       required: true,
       unique: true,
+    },
+    birthDay:{
+      type:'string',
+      required:true,
+    },
+    grender:{
+      type:"string",
+      required:true
+    },
+    username:{
+      type:'string',
+      required:true,
+      unique:true
     },
     emailStatus: {
       type: "string",
@@ -34,6 +52,10 @@ module.exports = {
       description:
         "time in milliseconds representing when the emailProofToken will expire",
       columnName: "email_proof_token_expires_at",
+    },
+    password:{
+       type:'string',
+       required:true
     },
     passwordResetToken: {
       type: "string",
