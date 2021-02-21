@@ -39,7 +39,19 @@ module.exports = {
     },
   },
 
-  exits: {},
+  exits: {
+    success: {
+      statusCode: 201,
+      description: "New muna user created",
+    },
+    emailAlreadyInUse: {
+      statusCode: 400,
+      description: "Email address already in use",
+    },
+    error: {
+      description: "Something went wrong",
+    },
+  },
 
   fn: async function (inputs) {
     try {
@@ -51,7 +63,6 @@ module.exports = {
         birthDay,
         grender,
         username,
-        password,
       } = inputs;
 
       const findUser = await User.findOne({ email: email });
@@ -76,7 +87,7 @@ module.exports = {
 
       const confirmLink = `${sails.config.custom.baseUrl}/user/confirm?token=${token}`;
 
-      const email = {
+      const emailHeader = {
         to: addUser.email,
         subject: "Confirm Your account",
         template: "confirm",
@@ -85,11 +96,11 @@ module.exports = {
           confirmLink: confirmLink,
         },
       };
-      await sails.helpers.sendMail(email);
 
-      return exits.success({
-        message: `An account has been created for ${addUser.email} successfully. Check your email to verify`,
-      });
+      await sails.helpers.sendMail(emailHeader);
+
+      return console.log(`An account has been created for ${addUser.email} successfully. Check your email to verify`);
+      
     } catch (error) {
       console.log(error);
       return error;

@@ -9,9 +9,11 @@
  */
 
 module.exports.routes = {
-
-    "GET /": "home/index",
-    'POST /user/register': 'user/register'
-
-
+  //User routes
+  "GET /": "home/index",
+  "POST /user/register": "user/register",
+  "GET /user/confirm": "user/confirm",
+  "POST /user/login": "user/login",
+  "POST /user/forgot-password": "user/forgot-password",
+  "POST /user/reset-password": "user/reset-password",
 };

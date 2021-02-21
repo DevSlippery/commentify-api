@@ -19,4 +19,6 @@ module.exports.policies = {
 
   // '*': true,
 
+  "user/login":"login-verification"
+
 };

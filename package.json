@@ -7,6 +7,7 @@
   "dependencies": {
     "@sailshq/lodash": "^3.10.3",
     "flaverr": "^1.10.0",
+    "jsonwebtoken": "^8.5.1",
     "nodemailer": "^6.4.18",
     "nodemailer-express-handlebars": "^4.0.0",
     "nodemailer-sendgrid": "^1.0.3",
